@@ -1,0 +1,23 @@
+<template>
+	<div class="app slds-p-around_x-large">
+		<h1 class="slds-text-heading_large">{title}</h1>
+		<h2 class="slds-text-heading_medium">Quotes For Today!</h2>
+
+		<!-- Using an if statement -->
+		<template if:true={showQuotes}>
+			<div class="slds-p-top_large">
+				<!-- Using a for statement -->
+				<template for:each={quotes} for:item='quote'>
+					<c-child label={quote.text} key={quote.text} author={quote.author}>
+						<!-- Specifying the 'image' and 'icon' slot for c-child -->
+						<img slot="image" style="border-radius:50%" width="40" src={quote.image}/>
+						<lightning-icon icon-name={quote.icon} size="x-small" slot="icon"></lightning-icon>
+					</c-child>
+
+				</template>
+			</div>
+		</template>
+
+
+	</div>
+</template>
